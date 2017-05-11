@@ -1,0 +1,4 @@
+{
+    "mlabURI": "mongodb://****:****@ds137281.mlab.com:37281/arwl-passport-local", 
+    "sessionSecret": "library"
+}

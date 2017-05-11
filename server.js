@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const flash = require('connect-flash'); 
 
 const { mongoose, User } = require('./db');  
-
+const config = require('./config'); 
 
 const app = express(); 
 
@@ -16,7 +16,7 @@ app.use(express.static('public'));
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({extended: false})); 
 app.use(session({
-  secret: 'somerandomstring', 
+  secret: config.sessionSecret, 
   resave: false, 
   saveUninitialized: true, 
   store: new MongoStore({ mongooseConnection: mongoose.connection })

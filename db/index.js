@@ -1,13 +1,13 @@
 'use strict'; 
 const Chalk = require('chalk'); 
 const mongoose = require('mongoose'); 
-// const { mlabURI } = require('../config'); 
+const { mlabURI } = require('../config'); 
 
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://arwl:1234@ds137281.mlab.com:37281/arwl-passport-local"); 
+mongoose.connect(mlabURI); 
 
 mongoose.connection.on('connected', () => {
-  console.log(Chalk.green('mongoose connected to: ' + "mongodb://arwl:1234@ds137281.mlab.com:37281/arwl-passport-local")); 
+  console.log(Chalk.green('mongoose connected to: ' + mlabURI)); 
 }); 
 
 mongoose.connection.on('error', (err) => {
